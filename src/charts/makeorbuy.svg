@@ -1,0 +1,26 @@
+<svg class="chart" viewBox="0 0 600 300" role="img" aria-label="Eigenfertigung mit 10 Mio. Fixkosten und 10 Euro variablen Kosten gegen Fremdbezug zu 20 Euro: Ab 1 Mio. Stück ist Eigenfertigung günstiger">
+<line class="ch-zero" x1="56" x2="480" y1="254.0" y2="254.0"/>
+<text class="ch-tick" x="48" y="258.0" text-anchor="end">0</text>
+<line class="ch-grid" x1="56" x2="480" y1="195.0" y2="195.0"/>
+<text class="ch-tick" x="48" y="199.0" text-anchor="end">10</text>
+<line class="ch-grid" x1="56" x2="480" y1="136.0" y2="136.0"/>
+<text class="ch-tick" x="48" y="140.0" text-anchor="end">20</text>
+<line class="ch-grid" x1="56" x2="480" y1="77.0" y2="77.0"/>
+<text class="ch-tick" x="48" y="81.0" text-anchor="end">30</text>
+<line class="ch-grid" x1="56" x2="480" y1="18.0" y2="18.0"/>
+<text class="ch-tick" x="48" y="22.0" text-anchor="end">40</text>
+<line class="ch-axis" x1="56" x2="480" y1="254" y2="254"/>
+<text class="ch-tick" x="56.0" y="272" text-anchor="middle">0</text>
+<text class="ch-tick" x="162.0" y="272" text-anchor="middle">0,5</text>
+<text class="ch-tick" x="268.0" y="272" text-anchor="middle">1</text>
+<text class="ch-tick" x="374.0" y="272" text-anchor="middle">1,5</text>
+<text class="ch-tick" x="480.0" y="272" text-anchor="middle">2</text>
+<text class="ch-title" x="268.0" y="294" text-anchor="middle">Menge in Mio. Schlüssel</text>
+<text class="ch-title" x="56" y="12" text-anchor="start">Kosten in Mio. €</text>
+<path class="ch-line s1" d="M56.0,195.0 L480.0,77.0"/>
+<path class="ch-line s2" d="M56.0,254.0 L480.0,18.0"/>
+<circle class="ch-dot s3" cx="268.0" cy="136.0" r="5" data-tip="Kritische Menge 1 Mio. Stück: beide Varianten kosten 20 Mio. €"/>
+<text class="ch-lab" x="488" y="81.0">Eigenfertigung</text>
+<text class="ch-lab" x="488" y="22.0">Fremdbezug</text>
+<text class="ch-note strong" x="276.0" y="156.0">x* = 1 Mio.</text>
+</svg>

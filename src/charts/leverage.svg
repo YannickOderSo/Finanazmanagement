@@ -1,0 +1,53 @@
+<svg class="chart" viewBox="0 0 640 340" role="img" aria-label="Eigenkapitalrendite steigt mit dem Verschuldungsgrad, solange die Gesamtkapitalrendite über 9 Prozent liegt, und fällt darunter">
+<line class="ch-grid" x1="56" x2="520" y1="268.9" y2="268.9"/>
+<text class="ch-tick" x="48" y="272.9" text-anchor="end">−10 %</text>
+<line class="ch-zero" x1="56" x2="520" y1="218.7" y2="218.7"/>
+<text class="ch-tick" x="48" y="222.7" text-anchor="end">0 %</text>
+<line class="ch-grid" x1="56" x2="520" y1="168.5" y2="168.5"/>
+<text class="ch-tick" x="48" y="172.5" text-anchor="end">10 %</text>
+<line class="ch-grid" x1="56" x2="520" y1="118.4" y2="118.4"/>
+<text class="ch-tick" x="48" y="122.4" text-anchor="end">20 %</text>
+<line class="ch-grid" x1="56" x2="520" y1="68.2" y2="68.2"/>
+<text class="ch-tick" x="48" y="72.2" text-anchor="end">30 %</text>
+<line class="ch-grid" x1="56" x2="520" y1="18.0" y2="18.0"/>
+<text class="ch-tick" x="48" y="22.0" text-anchor="end">40 %</text>
+<line class="ch-axis" x1="56" x2="520" y1="294" y2="294"/>
+<text class="ch-tick" x="56.0" y="312" text-anchor="middle">0</text>
+<text class="ch-tick" x="85.0" y="312" text-anchor="middle">0,25</text>
+<text class="ch-tick" x="172.0" y="312" text-anchor="middle">1</text>
+<text class="ch-tick" x="288.0" y="312" text-anchor="middle">2</text>
+<text class="ch-tick" x="404.0" y="312" text-anchor="middle">3</text>
+<text class="ch-tick" x="520.0" y="312" text-anchor="middle">4</text>
+<text class="ch-title" x="288.0" y="334" text-anchor="middle">Verschuldungsgrad FK/EK  (Fremdkapitalzins rFK = 9 %)</text>
+<text class="ch-title" x="56" y="12" text-anchor="start">Eigenkapitalrendite rEK</text>
+<path class="ch-line s1" d="M56.0,143.5 L520.0,23.0"/>
+<circle class="ch-dot s1" cx="56.0" cy="143.5" r="4" data-tip="r = 15 %, VG = 0: rEK = 15 %"/>
+<circle class="ch-dot s1" cx="85.0" cy="135.9" r="4" data-tip="r = 15 %, VG = 0,25: rEK = 16,50 %"/>
+<circle class="ch-dot s1" cx="172.0" cy="113.3" r="4" data-tip="r = 15 %, VG = 1: rEK = 21 %"/>
+<circle class="ch-dot s1" cx="520.0" cy="23.0" r="4" data-tip="r = 15 %, VG = 4: rEK = 39 %"/>
+<text class="ch-lab" x="528" y="27.0">r = 15 % → 39 %</text>
+<path class="ch-line s2" d="M56.0,158.5 L520.0,98.3"/>
+<circle class="ch-dot s2" cx="56.0" cy="158.5" r="4" data-tip="r = 12 %, VG = 0: rEK = 12 %"/>
+<circle class="ch-dot s2" cx="85.0" cy="154.7" r="4" data-tip="r = 12 %, VG = 0,25: rEK = 12,75 %"/>
+<circle class="ch-dot s2" cx="172.0" cy="143.5" r="4" data-tip="r = 12 %, VG = 1: rEK = 15 %"/>
+<circle class="ch-dot s2" cx="520.0" cy="98.3" r="4" data-tip="r = 12 %, VG = 4: rEK = 24 %"/>
+<text class="ch-lab" x="528" y="102.3">r = 12 % → 24 %</text>
+<path class="ch-line s3" d="M56.0,173.6 L520.0,173.6"/>
+<circle class="ch-dot s3" cx="56.0" cy="173.6" r="4" data-tip="r = 9 %, VG = 0: rEK = 9 %"/>
+<circle class="ch-dot s3" cx="85.0" cy="173.6" r="4" data-tip="r = 9 %, VG = 0,25: rEK = 9 %"/>
+<circle class="ch-dot s3" cx="172.0" cy="173.6" r="4" data-tip="r = 9 %, VG = 1: rEK = 9 %"/>
+<circle class="ch-dot s3" cx="520.0" cy="173.6" r="4" data-tip="r = 9 %, VG = 4: rEK = 9 %"/>
+<text class="ch-lab" x="528" y="177.6">r = 9 % → 9 %</text>
+<path class="ch-line s4" d="M56.0,183.6 L520.0,223.7"/>
+<circle class="ch-dot s4" cx="56.0" cy="183.6" r="4" data-tip="r = 7 %, VG = 0: rEK = 7 %"/>
+<circle class="ch-dot s4" cx="85.0" cy="186.1" r="4" data-tip="r = 7 %, VG = 0,25: rEK = 6,50 %"/>
+<circle class="ch-dot s4" cx="172.0" cy="193.6" r="4" data-tip="r = 7 %, VG = 1: rEK = 5 %"/>
+<circle class="ch-dot s4" cx="520.0" cy="223.7" r="4" data-tip="r = 7 %, VG = 4: rEK = −1 %"/>
+<text class="ch-lab" x="528" y="227.7">r = 7 % → −1 %</text>
+<path class="ch-line s5" d="M56.0,193.6 L520.0,273.9"/>
+<circle class="ch-dot s5" cx="56.0" cy="193.6" r="4" data-tip="r = 5 %, VG = 0: rEK = 5 %"/>
+<circle class="ch-dot s5" cx="85.0" cy="198.7" r="4" data-tip="r = 5 %, VG = 0,25: rEK = 4 %"/>
+<circle class="ch-dot s5" cx="172.0" cy="213.7" r="4" data-tip="r = 5 %, VG = 1: rEK = 1 %"/>
+<circle class="ch-dot s5" cx="520.0" cy="273.9" r="4" data-tip="r = 5 %, VG = 4: rEK = −11 %"/>
+<text class="ch-lab" x="528" y="277.9">r = 5 % → −11 %</text>
+</svg>

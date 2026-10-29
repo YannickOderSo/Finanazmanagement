@@ -1,0 +1,381 @@
+<title>Finanzmanagement-Lernpfad</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: Kursbuch – Kapitelleiste links (Desktop) bzw. oben als Streifen (Phone), Lesespalte ~70 Zeichen, Rechen- und Bilanzblöcke dürfen breiter werden */
+:root {
+  --bg: #f3f6f5; --surface: #ffffff; --surface-2: #e8eeec; --ink: #15201d; --ink-2: #43504c; --ink-3: #66736f;
+  --line: #d2dbd8; --grid: #e2e8e6;
+  --accent: #0b6b5c; --accent-2: #0d8270; --accent-soft: #dcefea; --on-accent: #ffffff;
+  --must: #b3302a; --must-soft: #f7e0de; --often: #a8500d; --often-soft: #f8e5d4; --maybe: #7e6200; --maybe-soft: #f4ecca;
+  --lecture: #2457a6; --lecture-soft: #dee7f6;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --measure: 70ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1513; --surface: #161e1b; --surface-2: #1e2824; --ink: #e5ece9; --ink-2: #b1bdb8; --ink-3: #86938e;
+    --line: #2c3833; --grid: #222c28;
+    --accent: #47b5a2; --accent-2: #5fc8b5; --accent-soft: #15352f; --on-accent: #07201b;
+    --must: #f07870; --must-soft: #3b1e1c; --often: #f0975a; --often-soft: #3a2616; --maybe: #dcba4f; --maybe-soft: #322a12;
+    --lecture: #7eaaf0; --lecture-soft: #1a2940;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1513; --surface: #161e1b; --surface-2: #1e2824; --ink: #e5ece9; --ink-2: #b1bdb8; --ink-3: #86938e;
+  --line: #2c3833; --grid: #222c28;
+  --accent: #47b5a2; --accent-2: #5fc8b5; --accent-soft: #15352f; --on-accent: #07201b;
+  --must: #f07870; --must-soft: #3b1e1c; --often: #f0975a; --often-soft: #3a2616; --maybe: #dcba4f; --maybe-soft: #322a12;
+  --lecture: #7eaaf0; --lecture-soft: #1a2940;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+
+.page { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 80px;
+  display: grid; grid-template-columns: 240px minmax(0, 1fr); column-gap: 48px; }
+.hero { grid-column: 1 / -1; }
+main { min-width: 0; display: grid; gap: 72px; }
+
+h1, h2, h3, h4 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.15rem); font-weight: 700; }
+h3 { font-size: 1.3rem; font-weight: 700; margin-top: 8px; }
+h4 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; max-width: var(--measure); }
+.flow { display: grid; gap: 16px; }
+.flow > * { min-width: 0; }
+ul, ol { margin: 0; padding-left: 1.3em; max-width: var(--measure); }
+li + li { margin-top: 4px; }
+strong { font-weight: 600; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+code, .mono, .num { font-family: var(--f-mono); font-size: 0.86em; }
+.num { font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.lead { font-size: 1.15rem; color: var(--ink-2); }
+.muted { color: var(--ink-3); }
+.small { font-size: 0.9rem; }
+
+/* Hero */
+.hero { display: grid; gap: 18px; padding-bottom: 36px; margin-bottom: 40px; border-bottom: 1px solid var(--line); }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; }
+.fact { display: grid; gap: 2px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+.fact b { font-family: var(--f-display); font-size: 1.35rem; line-height: 1.1; }
+.fact span { font-size: 0.82rem; color: var(--ink-3); }
+.progress { display: grid; gap: 6px; max-width: 520px; }
+.bar { height: 8px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 99px; transition: width .3s; }
+
+/* Kapitelleiste */
+.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); align-self: start; max-height: calc(100vh - 32px); overflow: auto; display: grid; gap: 2px; padding-bottom: 16px; }
+.toc .eyebrow { margin: 0 0 8px 10px; }
+.toc a { display: grid; grid-template-columns: 2.2em 1fr; gap: 4px; align-items: baseline; padding: 6px 10px; border-radius: 8px; color: var(--ink-2); text-decoration: none; font-family: var(--f-display); font-size: 0.95rem; line-height: 1.25; }
+.toc a .n { font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-3); }
+.toc a:hover { background: var(--surface-2); color: var(--ink); }
+.toc a.done .n::before { content: "✓ "; color: var(--accent); }
+.toc a.active { background: var(--accent-soft); color: var(--ink); }
+@media (max-width: 960px) {
+  .page { grid-template-columns: minmax(0, 1fr); }
+  .toc { top: env(safe-area-inset-top, 0px); z-index: 5; max-height: none; display: flex; overflow-x: auto; gap: 6px; padding: 10px 0; background: var(--bg); border-bottom: 1px solid var(--line); margin-bottom: 32px; scrollbar-width: thin; }
+  .toc .eyebrow { display: none; }
+  .toc a { display: flex; gap: 6px; white-space: nowrap; padding: 6px 12px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); }
+  section[id] { scroll-margin-top: 72px; }
+}
+
+/* Abschnitte */
+section.modul { display: grid; gap: 22px; min-width: 0; }
+.mhead { display: grid; gap: 10px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+.mhead .eyebrow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.done-toggle { display: inline-flex; gap: 8px; align-items: center; font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink-2); cursor: pointer; user-select: none; }
+.done-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+
+/* Quellen- und Prioritätsmarken */
+.ref { display: inline-flex; align-items: baseline; gap: 4px; font-family: var(--f-mono); font-size: 0.74rem; line-height: 1.2; padding: 2px 7px; border-radius: 5px; white-space: nowrap; vertical-align: 1px; border: 1px solid transparent; }
+.ref.sv { background: var(--surface-2); color: var(--ink); border-color: var(--line); }
+.ref.ki { background: var(--accent-soft); color: var(--ink); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.ref.vl { background: var(--lecture-soft); color: var(--ink); border-color: color-mix(in srgb, var(--lecture) 35%, transparent); }
+.ref.ms { background: transparent; color: var(--ink-2); border-color: var(--line); border-style: dashed; }
+.ref b { font-weight: 600; }
+.prio { display: inline-flex; gap: 6px; align-items: center; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
+.prio::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.prio.must { color: var(--must); background: var(--must-soft); }
+.prio.often { color: var(--often); background: var(--often-soft); }
+.prio.maybe { color: var(--maybe); background: var(--maybe-soft); }
+.prio.lect { color: var(--lecture); background: var(--lecture-soft); }
+
+/* Zitate aus Video und Vorlesung */
+.zitat { margin: 0; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; display: grid; gap: 6px; max-width: var(--measure); }
+.zitat.vl { border-left-color: var(--lecture); }
+.zitat p { font-style: italic; }
+.zitat footer { font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-3); }
+
+/* Kästen */
+.box { padding: 16px 18px; border-radius: 12px; display: grid; gap: 10px; max-width: calc(var(--measure) + 40px); min-width: 0; }
+.box > h4 { display: flex; gap: 8px; align-items: baseline; }
+.box.antwort { background: var(--surface); border: 1.5px solid var(--ink); box-shadow: 4px 4px 0 var(--surface-2); }
+.box.antwort > h4::before { content: "Klausur-Antwort"; font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: 2px 6px; border-radius: 4px; }
+.box.merke { background: var(--accent-soft); }
+.box.merke > h4::before { content: "Merke"; font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.box.warn { background: var(--must-soft); border: 1px solid color-mix(in srgb, var(--must) 40%, transparent); }
+.box.warn > h4 { color: var(--must); }
+.box.info { background: var(--surface-2); }
+
+/* Aufgaben */
+.aufgabe { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 16px 18px; display: grid; gap: 12px; min-width: 0; }
+.aufgabe > .ah { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline; }
+.aufgabe > .ah h4 { font-size: 1.05rem; }
+.aufgabe > .ah .pts { font-family: var(--f-mono); font-size: 0.78rem; color: var(--ink-3); }
+details.loesung { border-top: 1px dashed var(--line); padding-top: 10px; }
+details.loesung > summary { cursor: pointer; font-family: var(--f-mono); font-size: 0.82rem; color: var(--accent); list-style: none; display: inline-flex; gap: 8px; align-items: center; }
+details.loesung > summary::-webkit-details-marker { display: none; }
+details.loesung > summary::before { content: "▸"; transition: transform .15s; }
+details.loesung[open] > summary::before { transform: rotate(90deg); }
+details.loesung > .flow { margin-top: 12px; }
+
+/* Tabellen */
+.tw { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { padding: 7px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--grid); }
+th { font-family: var(--f-display); font-weight: 700; font-size: 0.86rem; background: var(--surface-2); }
+tr:last-child td { border-bottom: 0; }
+td.r, th.r { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 0.84rem; white-space: nowrap; }
+tr.sum td { font-weight: 600; border-top: 1.5px solid var(--ink-3); }
+tr.hl td { background: var(--accent-soft); }
+td.neg { color: var(--must); }
+
+/* T-Konto für Bilanzen */
+.tkonto { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--ink); border-radius: 4px; background: var(--surface); font-size: 0.9rem; max-width: 560px; }
+.tkonto > div { padding: 8px 12px; display: grid; gap: 2px; align-content: start; }
+.tkonto > div + div { border-left: 1.5px solid var(--ink); }
+.tkonto .kopf { font-family: var(--f-display); font-weight: 700; border-bottom: 1px solid var(--ink-3); padding-bottom: 4px; margin-bottom: 4px; display: flex; justify-content: space-between; }
+.tkonto .z { display: flex; justify-content: space-between; gap: 10px; }
+.tkonto .z span:last-child { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 0.85rem; }
+.tkonto .z.sub { padding-left: 12px; color: var(--ink-2); }
+.tkonto .z.tot { border-top: 1px solid var(--ink-3); margin-top: 6px; padding-top: 4px; font-weight: 600; }
+.tgroup { display: flex; flex-wrap: wrap; gap: 14px; }
+.tgroup > figure { margin: 0; display: grid; gap: 6px; flex: 1 1 260px; min-width: 0; }
+.tgroup figcaption { font-size: 0.85rem; color: var(--ink-2); }
+
+/* Abbildungen und Diagramme */
+figure.fig { margin: 0; display: grid; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; min-width: 0; }
+figure.fig figcaption { font-size: 0.88rem; color: var(--ink-2); max-width: var(--measure); }
+.figscroll { overflow-x: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-2); }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 14px; height: 4px; border-radius: 2px; background: var(--s1); }
+.legend i.sq { height: 12px; width: 12px; border-radius: 3px; }
+.legend i.c2 { background: var(--s2); } .legend i.c3 { background: var(--s3); } .legend i.c4 { background: var(--s4); } .legend i.c5 { background: var(--s5); }
+.legend i.gap { background: color-mix(in srgb, var(--accent) 20%, transparent); height: 12px; }
+
+.chart, .dg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart { font-family: var(--f-mono); }
+.ch-grid { stroke: var(--grid); stroke-width: 1; }
+.ch-zero, .ch-axis { stroke: var(--ink-3); stroke-width: 1; }
+.ch-tick { fill: var(--ink-3); font-size: 11px; }
+.ch-title { fill: var(--ink-2); font-size: 11.5px; }
+.ch-lab { fill: var(--ink-2); font-size: 12px; }
+.ch-note { fill: var(--ink-2); font-size: 11.5px; }
+.ch-note.strong { fill: var(--ink); font-weight: 600; }
+.ch-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.ch-line.thick { stroke-width: 3; }
+.ch-line.s1 { stroke: var(--s1); } .ch-line.s2 { stroke: var(--s2); } .ch-line.s3 { stroke: var(--s3); } .ch-line.s4 { stroke: var(--s4); } .ch-line.s5 { stroke: var(--s5); }
+.ch-dot { stroke: var(--surface); stroke-width: 2; cursor: pointer; }
+.ch-dot.s1 { fill: var(--s1); } .ch-dot.s2 { fill: var(--s2); } .ch-dot.s3 { fill: var(--s3); } .ch-dot.s4 { fill: var(--s4); } .ch-dot.s5 { fill: var(--s5); }
+.f1 { fill: var(--s1); } .f2 { fill: var(--s2); } .f3 { fill: var(--s3); }
+.ch-gap { fill: var(--accent); fill-opacity: 0.13; }
+.ch-peak { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 4 4; }
+.ch-hit { fill: transparent; cursor: crosshair; }
+.ch-hit:hover { fill: var(--ink); fill-opacity: 0.04; }
+.ch-bracket { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
+.ch-band { stroke: var(--ink-3); stroke-width: 1.5; }
+.ch-arrow { stroke: var(--ink-2); stroke-width: 1.5; fill: none; }
+.ch-arrowhead { fill: var(--ink-2); }
+rect[data-tip]:not(.ch-hit) { cursor: pointer; }
+rect[data-tip]:not(.ch-hit):hover { opacity: 0.85; }
+
+.dg text { fill: var(--ink); font-family: var(--f-body); font-size: 13px; }
+.dg .t-s { font-size: 11.5px; fill: var(--ink-2); }
+.dg .t-b { font-weight: 600; }
+.dg .box { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1.5; }
+.dg .box.hl { fill: var(--accent-soft); stroke: var(--accent); }
+.dg .box.risk { fill: var(--must-soft); stroke: var(--must); }
+.dg .edge { stroke: var(--ink-2); stroke-width: 1.5; fill: none; }
+.dg .edge.money { stroke: var(--s3); stroke-width: 2; }
+.dg .edge.claim { stroke: var(--s1); stroke-width: 2; }
+.dg .edge.dash { stroke-dasharray: 5 4; }
+.dg .edge.fix { stroke: var(--s2); stroke-width: 2; }
+.dg .ah { fill: var(--ink-2); } .dg .ah.money { fill: var(--s3); } .dg .ah.claim { fill: var(--s1); } .dg .ah.fix { fill: var(--s2); }
+.dg .lane { fill: var(--surface-2); }
+
+.tip { position: fixed; z-index: 30; max-width: 280px; padding: 7px 10px; border-radius: 8px; background: var(--ink); color: var(--bg); font-family: var(--f-mono); font-size: 0.76rem; line-height: 1.35; pointer-events: none; box-shadow: 0 6px 20px rgb(0 0 0 / 0.18); }
+
+/* Rechner */
+.calc { border: 1.5px solid var(--accent); border-radius: 12px; padding: 16px 18px; display: grid; gap: 14px; background: var(--surface); min-width: 0; }
+.calc .ch { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.calc .ch::before { content: "Rechner"; font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: 2px 6px; border-radius: 4px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.fields label { display: grid; gap: 4px; font-size: 0.82rem; color: var(--ink-2); font-family: var(--f-mono); }
+.fields input, .fields select { font: inherit; font-family: var(--f-mono); font-size: 0.95rem; padding: 7px 9px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; min-width: 0; }
+.out { font-family: var(--f-mono); font-size: 0.9rem; background: var(--surface-2); border-radius: 8px; padding: 10px 12px; display: grid; gap: 4px; overflow-x: auto; }
+.out b { font-size: 1.05rem; }
+
+/* Startseite */
+.legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px 18px; }
+.legend-grid > div { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; min-width: 0; }
+.plan { display: grid; gap: 14px; }
+.week { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.week:first-child { border-top: 0; }
+.week h4 { font-size: 1rem; }
+.week .when { font-family: var(--f-mono); font-size: 0.78rem; color: var(--ink-3); }
+.week ol { padding-left: 1.2em; }
+@media (max-width: 560px) { .week { grid-template-columns: 1fr; gap: 6px; } body { font-size: 16px; } }
+.kbd { font-family: var(--f-mono); font-size: 0.8em; padding: 1px 5px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; }
+hr.sep { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.two > * { min-width: 0; }
+.formula { font-family: var(--f-mono); font-size: 0.95rem; background: var(--surface-2); padding: 10px 14px; border-radius: 8px; overflow-x: auto; white-space: nowrap; max-width: 100%; }
+.step { counter-increment: step; }
+footer.end { grid-column: 1 / -1; margin-top: 64px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: 0.85rem; display: grid; gap: 6px; }
+</style>
+
+<div class="page">
+<header class="hero">
+  <div class="eyebrow">HS Kaiserslautern · Mittelstandsökonomie · Prof. Dr. Giersberg · FiMa 1 „Finanzierung“</div>
+  <h1>Finanzmanagement-Lernpfad</h1>
+  <p class="lead">Alles für die Klausur an einem Ort: der Stoff aller 198 Folien, was Giersberg in der Vorlesung dazu sagt, was die Assistentin als klausurrelevant nennt, Musterantworten, Rechenaufgaben mit Lösungswegen, Rechner und eine Probeklausur über 120 Punkte.</p>
+  <div class="facts">
+    <div class="fact"><b class="num">120</b><span>Punkte gesamt</span></div>
+    <div class="fact"><b class="num">9–10</b><span>Aufgaben</span></div>
+    <div class="fact"><b class="num">20</b><span>Punkte für Aufgabe 1</span></div>
+    <div class="fact"><b class="num">10–15</b><span>Punkte je weitere Aufgabe</span></div>
+    <div class="fact"><b class="num">5./6. + 12./13.11.</b><span>letzte Vorlesungen</span></div>
+  </div>
+  <div class="progress" aria-live="polite">
+    <div class="small muted" id="progress-text">0 von 11 Modulen erledigt</div>
+    <div class="bar"><i id="progress-bar"></i></div>
+  </div>
+</header>
+
+<nav class="toc" id="toc" aria-label="Kapitel">
+  <div class="eyebrow">Lernpfad</div>
+  <a href="#start"><span class="n">00</span><span>Start &amp; Lernplan</span></a>
+  <a href="#m1" data-mod="m1"><span class="n">01</span><span>Kapitalbedarf &amp; Geldumwandlung</span></a>
+  <a href="#m2" data-mod="m2"><span class="n">02</span><span>Finanzplanung &amp; Liquidität</span></a>
+  <a href="#m3" data-mod="m3"><span class="n">03</span><span>Kapitalstruktur &amp; Leverage</span></a>
+  <a href="#m4" data-mod="m4"><span class="n">04</span><span>Eigen- &amp; Innenfinanzierung, Factoring</span></a>
+  <a href="#m5" data-mod="m5"><span class="n">05</span><span>Kurzfristiges FK, Aval, Covenants</span></a>
+  <a href="#m6" data-mod="m6"><span class="n">06</span><span>Langfristiges FK, Leasing, Anleihen</span></a>
+  <a href="#m7" data-mod="m7"><span class="n">07</span><span>Mezzanine &amp; ABS</span></a>
+  <a href="#m8" data-mod="m8"><span class="n">08</span><span>Zinssicherung &amp; Swaps</span></a>
+  <a href="#m9" data-mod="m9"><span class="n">09</span><span>Investitionsrechnung</span></a>
+  <a href="#m10" data-mod="m10"><span class="n">10</span><span>Aufgabe 1: Wechsel &amp; Forfaitierung</span></a>
+  <a href="#m11" data-mod="m11"><span class="n">11</span><span>Probeklausur</span></a>
+  <a href="#anhang"><span class="n">A</span><span>Formeln &amp; Begriffe</span></a>
+</nav>
+
+<main>
+<section id="start" class="modul">
+  <div class="mhead">
+    <div class="eyebrow">00 · Einstieg</div>
+    <h2>So arbeitest du mit diesem Lernpfad</h2>
+  </div>
+  <div class="flow">
+    <p>Die Module bauen in der Reihenfolge der Folien aufeinander auf. Wenn die Zeit knapp ist, lernst du nach Priorität: zuerst alles, was mit <span class="prio must">sicher</span> markiert ist. Jedes Modul endet mit Aufgaben. Die Lösung klappst du erst auf, wenn du selbst gerechnet hast. Hake erledigte Module oben im Modulkopf ab; der Fortschritt bleibt in diesem Browser gespeichert.</p>
+    <blockquote class="zitat">
+      <p>„Bei ihm ist nicht Masse vor Klasse, sondern lieber kurz und knapp, aber das Richtige hinschreiben. […] Er will auch hören, was er gesagt hat oder was wichtig dabei ist bei der Folie. Nicht die Folie und nicht nur den Text, sondern auch, was er dazu sagt.“</p>
+      <footer>Assistentin, Klausur-Infos 29.10. · <span class="ref ki">KI 20:42</span></footer>
+    </blockquote>
+    <p>Deshalb steht bei jedem Thema, was Giersberg in der Vorlesung dazu erzählt hat, mit Zeitstempel. Diese Beispiele und Kernsätze gehören in deine Klausurantwort.</p>
+  </div>
+
+  <div class="box info">
+    <h4>Legende</h4>
+    <div class="legend-grid">
+      <div><span class="ref sv">SV 6</span><span>Folie 6 in deiner Studentenversion (Nummer unten rechts)</span></div>
+      <div><span class="ref ki">KI 03:15</span><span>Assistentin, Klausur-Infos vom 29.10., Minute 03:15</span></div>
+      <div><span class="ref vl">VL1 24:39</span><span>Vorlesung 22.10. vormittags (VL1) bzw. nachmittags (VL2)</span></div>
+      <div><span class="ref ms">MS S. 3</span><span>deine Mitschrift, Seite 3</span></div>
+      <div><span class="prio must">sicher</span><span>laut Assistentin (fast) immer in der Klausur</span></div>
+      <div><span class="prio often">oft</span><span>laut Assistentin häufig gefragt</span></div>
+      <div><span class="prio maybe">manchmal</span><span>gelegentlich bzw. nur, wenn noch behandelt</span></div>
+      <div><span class="prio lect">Vorlesung</span><span>von der Assistentin nicht genannt, von Giersberg betont</span></div>
+    </div>
+  </div>
+
+  <h3>Themenlandkarte</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Modul</th><th>Klausurthema</th><th>Priorität</th><th class="r">Punkte (ca.)</th><th>Folien</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>Wechselbeträge, Forfaitierung, Bank-Aval (immer Aufgabe 1)</td><td><span class="prio must">sicher</span> <span class="small muted">Zuordnung klären</span></td><td class="r">20</td><td>nicht in FiMa 1</td></tr>
+        <tr><td>01</td><td>Geldumwandlungsprozess: Schaubild + Erklärung</td><td><span class="prio must">sicher</span></td><td class="r">15</td><td>SV 6</td></tr>
+        <tr><td>01/02</td><td>Kapitalbedarf: Entstehung, Steuerung, Netto-Finanzbedarf rechnen</td><td><span class="prio must">sicher</span></td><td class="r">10–15</td><td>SV 4–14, 22–23</td></tr>
+        <tr><td>05</td><td>Covenants: Arten, Definitionen, Rechtsfolgen</td><td><span class="prio often">sehr oft</span></td><td class="r">10–15</td><td>SV 93–94</td></tr>
+        <tr><td>04</td><td>Sonstige Geldfreisetzungen, Factoring</td><td><span class="prio often">oft</span></td><td class="r">10–15</td><td>SV 84–86</td></tr>
+        <tr><td>05</td><td>Avalkredit (Biogas-Beispiel, Risikoverteilung)</td><td><span class="prio often">oft</span></td><td class="r">10–15</td><td>SV 90</td></tr>
+        <tr><td>09</td><td>Kapitalwert und interner Zinsfuß</td><td><span class="prio often">oft</span> <span class="small muted">falls behandelt</span></td><td class="r">10–15</td><td>SV 186–197</td></tr>
+        <tr><td>07</td><td>Asset Backed Securities</td><td><span class="prio often">oft</span></td><td class="r">10</td><td>SV 160–163</td></tr>
+        <tr><td>08</td><td>Zinsswap, Cap, Währungsswap</td><td><span class="prio maybe">manchmal</span></td><td class="r">10</td><td>SV 170–180</td></tr>
+        <tr><td>03</td><td>Leverage-Effekt, optimaler Verschuldungsgrad</td><td><span class="prio lect">Vorlesung</span></td><td class="r">–</td><td>SV 51–66</td></tr>
+        <tr><td>04/06</td><td>Rechtsformen, Selbstfinanzierung, Leasing, Anleihen, Mezzanine</td><td><span class="prio lect">Vorlesung</span></td><td class="r">–</td><td>SV 67–158</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Punkte: Aufgabe 1 = 20 Punkte, Geldumwandlungsprozess „so 15 Punkte für das Schaubild und kurze Erklärung“, sonst 10–15 Punkte je Aufgabe <span class="ref ki">KI 18:39</span> <span class="ref ki">KI 19:56</span>. Laut Assistentin decken diese Themen „mindestens die Hälfte“ der Klausur ab.</p>
+
+  <div class="box warn">
+    <h4>Zwei Dinge musst du bei der Assistentin klären</h4>
+    <ol>
+      <li><strong>Gehört Aufgabe 1 noch zu deiner Klausur?</strong> Wechsel und Forfaitierung stehen nicht in FiMa 1. Das sind Außenhandelsthemen, und das Modul wurde gerade in „Finanzierung“ und „Außenhandel“ geteilt <span class="ref ki">KI 16:54</span>. Gleichzeitig sagt sie, diese Aufgabe sei „immer die erste“. Modul 10 bereitet dich trotzdem vollständig darauf vor.</li>
+      <li><strong>Kommt die Investitionsrechnung noch?</strong> Am 29.10. war die Vorlesung bei Folie „knapp 100“. Kapitalwert und interner Zinsfuß kommen nur dran, „wenn er dorthin kommt“ <span class="ref ki">KI 07:36</span>.</li>
+    </ol>
+    <p class="small">Formulierung zum Kopieren: „Kommt die Aufgabe mit Wechselbeträgen, Forfaitierung und Bank-Aval auch nach der Aufteilung in die Klausur Finanzierung? Falls ja: Welche Zinsmethode gilt (Tage/360 oder /365), und gibt es eine Übungsaufgabe dazu?“</p>
+  </div>
+
+  <h3>Lernplan bis zur Klausur</h3>
+  <p>Die Klausur ist laut Gespräch in etwa drei Wochen. Plane nach Priorität, nicht nach Folienreihenfolge.</p>
+  <div class="plan">
+    <div class="week">
+      <div><h4>Woche 1</h4><div class="when">30.10.–4.11.</div></div>
+      <ol>
+        <li>Modul 01: Geldumwandlungsprozess als Schaubild frei zeichnen können, Kapitalbedarf erklären.</li>
+        <li>Modul 02: Rechenaufgabe Netto-Finanzbedarf zweimal ohne Lösung rechnen.</li>
+        <li>Modul 05: Covenants-Tabelle auswendig, Biogas-Aval-Beispiel erklären können.</li>
+        <li>Modul 04: Folie 84 und das Factoring-Rechenbeispiel.</li>
+        <li>Assistentin wegen Aufgabe 1 anschreiben, danach Modul 10 rechnen.</li>
+      </ol>
+    </div>
+    <div class="week">
+      <div><h4>Woche 2</h4><div class="when">5.–11.11. · Vorlesung 5./6.11.</div></div>
+      <ol>
+        <li>Modul 09: Kapitalwert und interner Zinsfuß rechnen, Unterschiede erklären.</li>
+        <li>Modul 07 (ABS) und Modul 08 (Zinsswap, Cap) – je eine Klausur-Antwort schreiben.</li>
+        <li>Modul 03: Leverage-Formel herleiten, Tabelle nachrechnen.</li>
+        <li>Nach jeder Vorlesung: Was Giersberg betont, zu den Folien notieren.</li>
+      </ol>
+    </div>
+    <div class="week">
+      <div><h4>Woche 3</h4><div class="when">ab 12.11. · Vorlesung 12./13.11.</div></div>
+      <ol>
+        <li>Modul 11: Probeklausur unter Zeitdruck, danach mit Lösungen vergleichen.</li>
+        <li>Alle Klausur-Antworten aus dem Gedächtnis skizzieren, besonders die Schaubilder.</li>
+        <li>Module 04 und 06 querlesen (Rechtsformen, Leasing, Anleihen, Mezzanine).</li>
+        <li>Neue Hinweise aus der Vorlesung und von der Assistentin einarbeiten.</li>
+      </ol>
+    </div>
+  </div>
+</section>

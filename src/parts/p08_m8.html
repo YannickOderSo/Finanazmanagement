@@ -1,0 +1,98 @@
+
+<section id="m8" class="modul">
+  <div class="mhead">
+    <div class="eyebrow"><span>08 · Folien SV 170–180 · ca. 60 min</span><label class="done-toggle"><input type="checkbox" id="done-m8" data-done="m8"> erledigt</label></div>
+    <h2>Zinssicherung: FRA, Zinsswap, Cap, Floor, Collar</h2>
+    <div class="chips"><span class="prio maybe">manchmal</span><span class="ref sv">SV 170–180</span><span class="ref ki">KI 15:46</span><span class="ref ms">MS S. 27</span></div>
+  </div>
+  <blockquote class="zitat"><p>„Zinsswap macht er oftmals. Was das ist […], was man von einem Cap, bei einem Zinsswap, was man da für eine Erwartung hat hinsichtlich des Zinses. Oder ein Währungsswap kann es auch sein.“ … „Dann Zinsswap, aber wenn Sie nicht dazu kommen …“</p><footer>Assistentin · <span class="ref ki">KI 15:46</span> <span class="ref ki">KI 19:39</span></footer></blockquote>
+
+  <h3>8.1 Zinsänderungsrisiko <span class="ref sv">SV 170–172</span></h3>
+  <p>Zinsänderungsrisiken gehören zu den <strong>Preisrisiken</strong>. Ursache ist die Unsicherheit über künftige Zinsen am Geld- und Kapitalmarkt. Sie wirken auf eine <strong>Erfolgsgröße</strong> (Zinsaufwand, Zinsspanne) oder eine <strong>Vermögensgröße</strong> (Marktwert festverzinslicher Wertpapiere). Die Folie zum Abschluss sagt: „Entscheidend ist die Bestimmung der <strong>Risikoposition</strong>“ <span class="ref sv">SV 180</span>.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Position</th><th>Risiko bei steigenden Zinsen</th><th>Risiko bei fallenden Zinsen</th><th>Passende Sicherung</th></tr></thead>
+    <tbody>
+      <tr><td>Kreditnehmer, variabel</td><td><strong>höhere Zinskosten</strong></td><td>–</td><td>Payer-Swap (fest zahlen), Cap, FRA kaufen</td></tr>
+      <tr><td>Kreditnehmer, fest</td><td>–</td><td>zahlt mehr als der Markt (Opportunität)</td><td>Receiver-Swap (fest erhalten, variabel zahlen)</td></tr>
+      <tr><td>Anleger, variabel</td><td>–</td><td><strong>sinkende Erträge</strong></td><td>Floor, Receiver-Swap</td></tr>
+      <tr><td>Anleger, festverzinsliche Papiere</td><td><strong>Kursverlust</strong></td><td>–</td><td>Payer-Swap, Laufzeiten verkürzen</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8.2 Forward Rate Agreement <span class="ref sv">SV 174</span></h3>
+  <p>Ein FRA sichert heute einen Zinssatz für einen künftigen Zeitraum. Am Stichtag wird nur die <strong>Differenz</strong> zwischen vereinbartem Zins und Referenzzins ausgeglichen; Kapital fließt nicht. Folienbeispiel: vereinbart 5 %, Unternehmen A hat Kredite zum Referenzzins.</p>
+  <div class="two">
+    <div class="box info"><h4>Referenzzins steigt auf 6 %</h4><p class="small">A zahlt der Bank 6 % für seinen Kredit. Aus dem FRA zahlt Bank B 1 % an A. Effektive Belastung: <strong>5 %</strong>.</p></div>
+    <div class="box info"><h4>Referenzzins fällt auf 4 %</h4><p class="small">A zahlt 4 % für seinen Kredit und 1 % an Bank B. Effektive Belastung: <strong>5 %</strong>. Gesichert, aber man nimmt am fallenden Zins nicht teil.</p></div>
+  </div>
+
+  <h3>8.3 Zinsswap <span class="ref sv">SV 175</span></h3>
+  <figure class="fig">
+    <div class="legend"><span><i class="c2"></i>fester Zins (9 %)</span><span><i></i>variabler Zins (Referenzzins)</span></div>
+    <div class="figscroll">
+    <svg class="dg" viewBox="0 0 660 260" role="img" aria-label="Kuponswap: A hat einen Festzinskredit und zahlt dem Partner B den variablen Zins, B zahlt A den festen Zins; so zahlt A effektiv variabel und B effektiv fest">
+      <defs>
+        <marker id="ah-sf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah fix"/></marker>
+        <marker id="ah-sv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah claim"/></marker>
+      </defs>
+      <rect class="box" x="20" y="14" width="190" height="52" rx="8"/><text x="115" y="45" text-anchor="middle" class="t-b">Kreditgeber von A</text>
+      <rect class="box" x="450" y="14" width="190" height="52" rx="8"/><text x="545" y="45" text-anchor="middle" class="t-b">Kreditgeber von B</text>
+      <rect class="box hl" x="20" y="150" width="190" height="70" rx="8"/><text x="115" y="178" text-anchor="middle" class="t-b">Swappartei A</text><text x="115" y="198" text-anchor="middle" class="t-s">hat Festzinskredit</text>
+      <rect class="box hl" x="450" y="150" width="190" height="70" rx="8"/><text x="545" y="178" text-anchor="middle" class="t-b">Swappartei B</text><text x="545" y="198" text-anchor="middle" class="t-s">hat variablen Kredit</text>
+      <line class="edge fix" x1="115" y1="147" x2="115" y2="69" marker-end="url(#ah-sf)"/><text x="122" y="112" class="t-s">9 % fest</text>
+      <line class="edge claim" x1="545" y1="147" x2="545" y2="69" marker-end="url(#ah-sv)"/><text x="552" y="112" class="t-s">variabel</text>
+      <line class="edge fix" x1="447" y1="168" x2="213" y2="168" marker-end="url(#ah-sf)"/><text x="330" y="160" text-anchor="middle" class="t-s">B zahlt A: 9 % fest</text>
+      <line class="edge claim" x1="213" y1="204" x2="447" y2="204" marker-end="url(#ah-sv)"/><text x="330" y="226" text-anchor="middle" class="t-s">A zahlt B: variabel (Referenzzins)</text>
+      <text x="115" y="248" text-anchor="middle" class="t-s t-b">A zahlt effektiv variabel</text>
+      <text x="545" y="248" text-anchor="middle" class="t-s t-b">B zahlt effektiv 9 % fest</text>
+    </svg>
+    </div>
+    <figcaption>Kuponswap nach SV 175: Getauscht werden nur Zinszahlungen auf einen gedachten Nominalbetrag, nie das Kapital. A erhält 9 % und reicht sie an seinen Kreditgeber weiter, übrig bleibt der variable Zins an B. Bei B ist es umgekehrt.</figcaption>
+  </figure>
+  <div class="box antwort">
+    <h4>Zinsswap und die Zinserwartung (ca. 10 Punkte)</h4>
+    <p><strong>Definition:</strong> Ein Zinsswap ist der vertragliche Tausch von Zinszahlungsströmen (fest gegen variabel) auf einen fiktiven Nominalbetrag für eine bestimmte Laufzeit. Getauscht werden nur die Zinsen, nicht das Kapital. Die Kreditverträge mit den Banken bleiben unverändert.</p>
+    <p><strong>Erwartung:</strong> Wer <strong>fest zahlt und variabel erhält</strong> (Partei B, Payer-Swap), erwartet <strong>steigende Zinsen</strong> bzw. will sich davor schützen; er macht seinen variablen Kredit zu einem Festzinskredit. Wer <strong>variabel zahlt und fest erhält</strong> (Partei A, Receiver-Swap), erwartet <strong>fallende Zinsen</strong> und will davon profitieren. Beide nutzen ihre jeweiligen Vorteile am Kreditmarkt (komparative Vorteile).</p>
+    <p><strong>Abgrenzung zum Cap:</strong> Der Swap fixiert, man nimmt also an fallenden Zinsen nicht mehr teil. Der Cap ist eine Option, die nur nach oben begrenzt und eine Prämie kostet.</p>
+  </div>
+
+  <h3>8.4 Zinsoptionen: Cap, Floor, Collar <span class="ref sv">SV 176–179</span></h3>
+  <p>Der Käufer einer Zinsoption erwirbt gegen eine <strong>Prämie</strong> das Recht, nicht die Pflicht, einen vereinbarten Zinssatz zu zahlen (<strong>Cap</strong>) oder zu erhalten (<strong>Floor</strong>). Vorteile: Versicherung gegen steigende bzw. fallende Zinsen, ohne die Chance aus einer günstigen Entwicklung aufzugeben; flexibel in Laufzeit, Strike und Betrag; jederzeit verkäuflich.</p>
+  <figure class="fig">
+    <div class="legend"><span><i></i>ungesichert</span><span><i class="c2"></i>mit Cap (Strike 6 %, Prämie 0,5 %)</span><span><i class="c3"></i>mit Collar (Cap 6 % gekauft, Floor 4 % verkauft)</span></div>
+    <div class="figscroll">{{chart:capcollar}}</div>
+    <figcaption>Zinskosten eines variablen Kredits in Abhängigkeit vom Referenzzins (nach SV 177 und 179). Der Cap begrenzt die Kosten auf 6 % + 0,5 % Prämie. Beim Collar finanziert der verkaufte Floor die Cap-Prämie (je 2 % auf der Folie, also netto 0). Dafür profitiert man unter 4 % nicht mehr von fallenden Zinsen.</figcaption>
+  </figure>
+  <div class="tw"><table>
+    <thead><tr><th>Instrument</th><th>Wer kauft?</th><th>Wirkung (Folienbeispiel)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cap</strong></td><td>Kreditnehmer mit variablem Zins</td><td>Zinsobergrenze: Strike 6 % + 0,5 % Prämie = max. 6,5 % Kreditkosten</td></tr>
+      <tr><td><strong>Floor</strong></td><td>Anleger mit variablem Zins</td><td>Zinsuntergrenze: Strike 5 % − 0,5 % Prämie = min. 4,5 % Anlageertrag</td></tr>
+      <tr><td><strong>Collar</strong></td><td>Kreditnehmer: Cap kaufen + Floor verkaufen</td><td>Zinskorridor 4–6 %; Prämien gleichen sich aus (je 2 %)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8.5 Währungsswap <span class="ref ki">KI 16:06</span></h3>
+  <div class="box info">
+    <h4>Nicht auf den Folien, die Assistentin erwähnt ihn aber</h4>
+    <p class="small">Beim <strong>Währungsswap</strong> tauschen zwei Parteien <strong>Kapitalbeträge und Zinszahlungen in verschiedenen Währungen</strong>. Ablauf (Lehrbuchwissen): ① Anfangstausch der Kapitalbeträge zum Kassakurs, ② während der Laufzeit zahlt jeder die Zinsen in der Währung, die er erhalten hat, ③ am Ende Rücktausch der Kapitalbeträge <strong>zum ursprünglichen Kurs</strong>. Damit ist das Wechselkursrisiko für Kapital und Zinsen ausgeschaltet. Beispiel: Ein deutsches Unternehmen finanziert eine US-Tochter. Es nimmt günstig Euro auf, tauscht sie per Swap in Dollar und bedient die Dollar-Zinsen aus den Dollar-Erträgen der Tochter. Unterschied zum Zinsswap: Dort wird kein Kapital getauscht, und alles läuft in einer Währung.</p>
+  </div>
+
+  <h3>Aufgaben zu Modul 08</h3>
+  <div class="aufgabe">
+    <div class="ah"><h4>A 8.1 · Swap rechnen</h4><span class="pts">ca. 10 P.</span></div>
+    <p>A hat einen Festzinskredit zu 5 %, B einen variablen Kredit zu Referenzzins + 1 %. Sie vereinbaren einen Swap: A zahlt B den Referenzzins, B zahlt A 4,5 % fest. a) Wie hoch sind die Nettozinskosten von A und B? b) Welche Zinserwartung haben die beiden? c) Wer gewinnt, wenn der Referenzzins auf 6 % steigt?</p>
+    <details class="loesung"><summary>Lösung anzeigen</summary><div class="flow">
+      <p>a) A: 5 % (Bank) − 4,5 % (von B) + Referenzzins (an B) = <strong>Referenzzins + 0,5 %</strong>, also variabel. B: Referenzzins + 1 % (Bank) − Referenzzins (von A) + 4,5 % (an A) = <strong>5,5 % fest</strong>.</p>
+      <p>b) A erwartet fallende Zinsen (wechselt von fest zu variabel), B erwartet steigende Zinsen bzw. will sich absichern (wechselt von variabel zu fest).</p>
+      <p>c) Bei 6 % zahlt A 6,5 %, ohne Swap wären es 5 % gewesen. B zahlt weiterhin 5,5 % statt 7 %. B hat richtig gelegen, A verliert gegenüber der Ausgangslage.</p>
+    </div></details>
+  </div>
+  <div class="aufgabe">
+    <div class="ah"><h4>A 8.2 · Cap</h4><span class="pts">ca. 6 P.</span></div>
+    <p>Ein Unternehmen hat einen variablen Kredit über 1 Mio. € und kauft einen Cap mit Strike 6 % zu 0,5 % Prämie p. a. Wie hoch sind die Zinskosten p. a. bei einem Referenzzins von 7,5 % bzw. 4 %? Wie viel zahlt der Cap-Verkäufer im ersten Fall?</p>
+    <details class="loesung"><summary>Lösung anzeigen</summary><div class="flow">
+      <p>Bei 7,5 %: Kredit 75.000 €, der Cap zahlt 1,5 % = 15.000 €, Prämie 5.000 €. Kosten 65.000 € = <strong>6,5 %</strong>. Bei 4 %: Kredit 40.000 €, der Cap zahlt nichts, Prämie 5.000 €. Kosten 45.000 € = <strong>4,5 %</strong>. Man profitiert vom niedrigen Zins, zahlt aber die Versicherungsprämie.</p>
+    </div></details>
+  </div>
+</section>
